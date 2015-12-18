@@ -1,0 +1,25 @@
+.node circle {
+  fill: #fff;
+  stroke-width: 3px;
+  cursor: pointer;
+}
+
+.node text {
+  font: 12px;
+  sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 4px;
+}
+
+.hyper:hover {
+  color: yellow;
+  text-decoration: underline;
+}
+
+body {
+  background-color: gainsboro
+}
