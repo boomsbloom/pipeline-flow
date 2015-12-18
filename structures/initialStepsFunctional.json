@@ -1,0 +1,118 @@
+[
+{
+  "name": "pconvert",
+  "scripts": "script: pconvert \nconfig: pconvert_config.m.template",
+  "link": "https://sites.google.com/a/smp.stanford.edu/scsnlwiki/data/fmri-data-processing/transforming-p-files-to-analyze-images--makevols",
+  "color": "lightyellow",
+  "children": [
+    {
+      "name": "Nifti",
+      "parent": "pconvert",
+      "color": "MediumTurquoise",
+      "children": [
+        {
+          "name": "Std Pipeline",
+          "parent": "Nifti",
+          "color": "MediumTurquoise",
+          "children": [
+            {
+              "name": "swar/swfar",
+              "parent": "Std Pipeline",
+              "color": "palevioletred",
+              "children": [
+                {
+                  "name": "movement exclusion",
+                  "parent": "swar/swfar",
+                  "color": "palevioletred",
+                  "children": [
+                    {
+                      "name": "Quality Control",
+                      "parent": "movement exclusion",
+                      "color": "MediumTurquoise",
+                      "children": [
+                        {
+                          "name": "Task-Based Analysis",
+                          "parent": "Std Pipeline",
+                          "color": "white"
+                        }, {
+                          "name": "Resting-State Analysis",
+                          "parent": "Std Pipeline",
+                          "color": "white"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ArtRepair Pipeline",
+          "parent": "Nifti",
+          "color": "MediumTurquoise",
+          "children": [
+            {
+              "name": "swar/swfar",
+              "parent": "Std Pipeline",
+              "color": "palevioletred",
+              "children": [
+                {
+                  "name": "movement exclusion",
+                  "parent": "swar/swfar",
+                  "color": "palevioletred",
+                  "children": [
+                    {
+                      "name": "Flipped (swfar)",
+                      "parent": "Determine subsequent pipelines",
+                      "color": "palevioletred",
+                      "children": [
+                        {
+                          "name": "Volume Repair",
+                          "parent": "Flipped (swfar)",
+                          "color": "palevioletred",
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Not flipped (swar)",
+                      "parent": "Determine subsequent pipelines",
+                      "color": "palevioletred",
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Analyze",
+      "parent": "pconvert",
+      "color": "MediumTurquoise",
+      "children": [
+        {
+          "name": "Std Pipeline",
+          "parent": "Analyze",
+          "color": "MediumTurquoise",
+          "children": [
+            {
+              "name": "swar/swfar",
+              "parent": "Std Pipeline",
+              "color": "palevioletred",
+              "children": [
+                {
+                  "name": "movement exclusion",
+                  "parent": "swar/swfar",
+                  "color": "palevioletred"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+]
